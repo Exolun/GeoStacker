@@ -8,9 +8,10 @@ public class ToolboxController : MonoBehaviour
     private static ToolboxController _instance;
     public static ToolboxController Instance { get { return ToolboxController._instance; } }
 
+    public GameObject CubePrototype;
+    public GameObject CylinderPrototype;
+    public GameObject SpherePrototype;
 
-
-    // Start is called before the first frame update
     void Start()
     {
         ToolboxController._instance = this;   

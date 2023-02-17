@@ -18,6 +18,7 @@ public class CommandManager : MonoBehaviour
     {
         command.Execute();
         commands.Push(command);
+        UndoController.Instance.UpdateInteractive(commands.Count > 0);
     }
 
     public void Undo()
@@ -28,5 +29,7 @@ public class CommandManager : MonoBehaviour
         {
             command.Undo();
         }
+
+        UndoController.Instance.UpdateInteractive(commands.Count > 0);
     }
 }
