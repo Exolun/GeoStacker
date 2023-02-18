@@ -11,15 +11,24 @@ public class ToolboxController : MonoBehaviour
     public GameObject CubePrototype;
     public GameObject CylinderPrototype;
     public GameObject SpherePrototype;
+    public Material IntersectGeoMat;
 
     void Start()
     {
         ToolboxController._instance = this;   
     }
 
-    // Update is called once per frame
-    void Update()
+    public GameObject GetPrototypeByName(string name)
     {
-        
+        switch (name.ToLower()) {
+            case "cube":
+                return this.CubePrototype;
+            case "cylinder":
+                return this.CylinderPrototype;
+            case "sphere":
+                return this.SpherePrototype;
+        }
+
+        return null;
     }
 }

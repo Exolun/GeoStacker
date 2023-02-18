@@ -6,11 +6,10 @@ using UnityEngine;
 public class GeometryButtonController : MonoBehaviour
 {
     public GameObject geometryPrototype;
-    public Material intersectGeoMat;
 
     public void OnClick()
     {
-        var addGeoCommand = new AddGeometryCommand(geometryPrototype, BooleanModeSelector.Instance.IsUnionMode ? null : intersectGeoMat);
+        var addGeoCommand = new AddGeometryCommand(geometryPrototype, BooleanModeSelector.Instance.IsUnionMode ? null : ToolboxController.Instance.IntersectGeoMat);
         CommandManager.Instance.ExecuteCommand(addGeoCommand);
     }
 }

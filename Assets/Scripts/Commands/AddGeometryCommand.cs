@@ -48,6 +48,7 @@ namespace Assets.Scripts.Commands
             {
                 var renderer = newGeometry.GetComponent<Renderer>();
                 renderer.sharedMaterial = this.materialToApply;
+                newGeometry.GetComponent<GeometryProperties>().IsUnion = false;
             }
 
             HierarchyController.Instance.AddGeometry(newGeometry);

@@ -16,6 +16,7 @@ namespace Assets.Scripts.Commands
         private Quaternion rotation;
         private Vector3 position;
         private Vector3 scale;
+        private bool isUnion;
 
         public DeleteGeometryCommand(GameObject geoToDelete)
         {
@@ -24,11 +25,10 @@ namespace Assets.Scripts.Commands
 
         public void Execute()
         {
-            var deleteProto = this.geoToDelete.GetComponent<GeometryProperties>();
-            if (deleteProto.GeometryType == "Cube")
-            {
-                this.geoPrototype = ToolboxController.Instance.CubePrototype;
-            }
+            var properties = this.geoToDelete.GetComponent<GeometryProperties>();
+            this.geoPrototype = ToolboxController.Instance.GetPrototypeByName(properties.GeometryType);
+            this.isUnion = properties.IsUnion;
+
 
             this.rotation = new Quaternion(this.geoToDelete.transform.rotation.x, this.geoToDelete.transform.rotation.y, this.geoToDelete.transform.rotation.z, this.geoToDelete.transform.rotation.w);
             this.position = new Vector3(this.geoToDelete.transform.position.x, this.geoToDelete.transform.position.y, this.geoToDelete.transform.position.z);
@@ -44,8 +44,7 @@ namespace Assets.Scripts.Commands
             
             // Run without adding to the stack for now
             // TODO: Implement Redo functionality
-            // TODO: Restore material too
-            var createCommand = new AddGeometryCommand(geoPrototype, position: this.position, rotation: this.rotation, scale: this.scale);
+            var createCommand = new AddGeometryCommand(geoPrototype, position: this.position, rotation: this.rotation, scale: this.scale, materialToApply: isUnion ? null : ToolboxController.Instance.IntersectGeoMat);
             createCommand.Execute();
         }
     }

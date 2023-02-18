@@ -2288,6 +2288,7 @@ MonoBehaviour:
   CubePrototype: {fileID: 1438551474}
   CylinderPrototype: {fileID: 1817069180}
   SpherePrototype: {fileID: 1442743560}
+  IntersectGeoMat: {fileID: 2100000, guid: 5ea867c255f18e84c8a8be0b04d36516, type: 2}
 --- !u!1 &1116198609
 GameObject:
   m_ObjectHideFlags: 0
@@ -3654,6 +3655,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GeometryPrototype: {fileID: 1438551474}
   GeometryType: Cube
+  IsUnion: 1
 --- !u!1 &1442743560
 GameObject:
   m_ObjectHideFlags: 0
@@ -3666,6 +3668,7 @@ GameObject:
   - component: {fileID: 1442743564}
   - component: {fileID: 1442743563}
   - component: {fileID: 1442743562}
+  - component: {fileID: 1442743565}
   m_Layer: 0
   m_Name: Sphere
   m_TagString: Selectable
@@ -3751,6 +3754,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1442743560}
   m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1442743565
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1442743560}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ebaabade3351f49986592321c5de30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GeometryPrototype: {fileID: 1442743560}
+  GeometryType: Sphere
+  IsUnion: 1
 --- !u!1 &1447386302
 GameObject:
   m_ObjectHideFlags: 0
@@ -4483,6 +4501,7 @@ GameObject:
   - component: {fileID: 1817069184}
   - component: {fileID: 1817069183}
   - component: {fileID: 1817069182}
+  - component: {fileID: 1817069185}
   m_Layer: 0
   m_Name: Cylinder
   m_TagString: Selectable
@@ -4569,6 +4588,21 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1817069180}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1817069185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1817069180}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ebaabade3351f49986592321c5de30, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GeometryPrototype: {fileID: 1817069180}
+  GeometryType: Cylinder
+  IsUnion: 1
 --- !u!1001 &1838366887
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class GeometryProperties : MonoBehaviour
 {
-    public GameObject GeometryPrototype;
     public string GeometryType;
+    public bool IsUnion = true;
 }
